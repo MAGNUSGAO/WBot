@@ -2,7 +2,7 @@
 #include <sstream>
 #include <unordered_set>
 
-const std::string BOT_TOKEN = "INSERT YOUR TOKEN";
+const std::string BOT_TOKEN = "Input your token here";
 std::unordered_set<int> online_users; // id of online users
 bool enable_trace = false;
  
@@ -46,7 +46,7 @@ int main() {
             log_on_cout("Triggered Slash Command pingactive");
 
             dpp::channel cur_channel = interaction.get_channel();
-            auto snowflake_to_guild = cur_channel.get_members();
+            std::__1::map<dpp::snowflake, dpp::guild_member *> snowflake_to_guild = cur_channel.get_members();
 
             log_on_cout_trace("pingactive: There are this many users: "  + std::to_string(snowflake_to_guild.size()));
             log_on_cout_trace("pingactive: There are this many online users" + std::to_string(online_users.size()));
